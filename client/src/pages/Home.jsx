@@ -1,4 +1,6 @@
-const Landing = (props) => {
+import Chat from "../components/Chat";
+
+const Home = (props) => {
   return (
     <>
       <h1>Join A Chat</h1>
@@ -17,8 +19,14 @@ const Landing = (props) => {
         }}
       />
       <button onClick={props.joinRoom}>Join A Room</button>
+
+      <Chat 
+        socket={props.socket} 
+        username={props.username} 
+        room={props.room}
+      />
     </>
   );
 }
  
-export default Landing;
+export default Home;

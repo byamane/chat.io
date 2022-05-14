@@ -1,7 +1,7 @@
 import './App.css';
 import io from 'socket.io-client'
 import { useState } from 'react';
-import Landing from './pages/Landing';
+import Home from './pages/Home';
 
 const socket = io.connect("http://localhost:3001")
 
@@ -19,12 +19,13 @@ function App() {
 
   return (
     <div className="App">
-      <Landing 
+      <Home 
         joinRoom={joinRoom} 
         username={username}
         setUsername={setUsername}
         room={room}
         setRoom={setRoom}
+        socket={socket}
       />
     </div>
   );
