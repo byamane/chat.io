@@ -1,6 +1,7 @@
 import './App.css';
 import io from 'socket.io-client'
 import { useState } from 'react';
+import Landing from './pages/Landing';
 
 const socket = io.connect("http://localhost:3001")
 
@@ -11,23 +12,20 @@ function App() {
 
   const joinRoom = () => {
     if (username !== "" && room !== "") {
-
+      socket.emit("join_room", room)
     }
   }
 
 
   return (
     <div className="App">
-      <h1>Join A Chat</h1>
-      <input 
-        type="text" 
-        placeholder="John" 
-        onChange={(evt) => {
-          setUsername(evt.target.value)
-        }}
+      <Landing 
+        joinRoom={joinRoom} 
+        username={username}
+        setUsername={setUsername}
+        room={room}
+        setRoom={setRoom}
       />
-      <input type="text" placeholder="Room ID..."/>
-      <button>Join A Room</button>
     </div>
   );
 }
