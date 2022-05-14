@@ -9,6 +9,7 @@ function App() {
 
   const [username, setUsername] = useState("")
   const [room, setRoom] = useState("")
+  const [showChat, setShowChat] = useState(false)
 
   const joinRoom = () => {
     if (username !== "" && room !== "") {
@@ -26,6 +27,8 @@ function App() {
         room={room}
         setRoom={setRoom}
         socket={socket}
+        showChat={showChat}
+        setShowChat={setShowChat}
       />
     </div>
   );

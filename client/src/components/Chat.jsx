@@ -28,19 +28,21 @@ const Chat = ({socket, username, room}) => {
 
   return ( 
     <>
-      <div className="chat-header">
-        <p>Live Chat</p>
-      </div>
-      <div className="chat-body"></div>
-      <div className="chat-footer">
-        <input 
-          type="text" 
-          placeholder="Hello friend..."
-          onChange={(evt) => {
-            setCurrentMessage(evt.target.value)
-          }} 
-        />
-        <button onClick={sendMessage}>Send &#9658;</button>
+      <div className="chat-window">
+        <div className="chat-header">
+          <p>Live Chat</p>
+        </div>
+        <div className="chat-body"></div>
+        <div className="chat-footer">
+          <input 
+            type="text" 
+            placeholder="Hello friend..."
+            onChange={(evt) => {
+              setCurrentMessage(evt.target.value)
+            }} 
+          />
+          <button onClick={sendMessage}>&#9658;</button>
+        </div>
       </div>
     </>
    );
