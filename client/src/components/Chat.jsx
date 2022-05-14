@@ -43,8 +43,8 @@ const Chat = ({socket, username, room}) => {
                     <p>{messageContent.message}</p>
                   </div>
                   <div className="message-meta">
-                    <p>{messageContent.time}</p>
-                    <p>{messageContent.author}</p>
+                    <p id="time">{messageContent.time}</p>
+                    <p id="author">{messageContent.author}</p>
                   </div>
                 </div>
               </div>
@@ -57,7 +57,10 @@ const Chat = ({socket, username, room}) => {
             placeholder="Hello friend..."
             onChange={(evt) => {
               setCurrentMessage(evt.target.value)
-            }} 
+            }}
+            onKeyPress={(evt) => {
+              evt.key === "Enter" && sendMessage()
+            }}
           />
           <button onClick={sendMessage}>&#9658;</button>
         </div>
